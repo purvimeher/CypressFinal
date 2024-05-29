@@ -35,3 +35,9 @@
 //     }
 //   }
 // }
+Cypress.Commands.add('loadConfusedWebSite', () => 
+    
+    { 
+        cy.visit("https://www.confused.com/")
+        cy.get('body').should('be.visible')
+    })

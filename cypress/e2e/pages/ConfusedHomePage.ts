@@ -6,8 +6,8 @@ export default class ConfusedHomePage {
 
 
     open(): void {
-        cy.visit(this.BASE_URL_NEW)
-        cy.get('body').should('be.visible').debug()
+        //custom commands added to cypress for resuablitity
+        cy.loadConfusedWebSite()
         cy.screenshot()
         cy.get('#button-save-all').should('be.visible').click()
     }
