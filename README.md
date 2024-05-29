@@ -9,7 +9,7 @@
 
 ## Code checkout and Framework Setup
 
-- Step 1: Checkout the code from: <giturl>
+- Step 1: Checkout the code from: https://github.com/purvimeher/CypressFinal.git
 - Step 2: Open the project root folder in command propmpt/Terminal
 - Step 3: Install node modules, npm install
 
