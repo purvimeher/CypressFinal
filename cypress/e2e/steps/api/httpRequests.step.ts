@@ -8,16 +8,16 @@ Given(/^I access api request end point to get users$/, function () {
     console.log(currentResponse)
 });
 
-Given(/^I access api request end point to get single user$/, () => {
-    cy.request('https://reqres.in/api/users/2').as('currentResponse').its("status").should('equal',200)
+Given(/^I access api request end point to get single user "([^"]*)"$/, (user) => {
+    cy.request('https://reqres.in/api/users/'+user).as('currentResponse').its("status").should('equal',200)
 });
 
-Given(/^I access api request end point to create user$/, function() {
+Given(/^I access api request end point to create user "([^"]*)"$/, function(user) {
     cy.request({
         method: 'POST',
         url: 'https://reqres.in/api/users',
         body:{
-            name: "meher",
+            name: user,
             job: "test analyst"
         }
     })
@@ -27,16 +27,32 @@ Given(/^I access api request end point to create user$/, function() {
     cy.debug()
 });
 
-Given(/^I access api request end point to update user$/, function() {
+Given(/^I access api request end point to update user "([^"]*)"$/, function(user) {
 	cy.request({
         method: 'PUT',
         url: 'https://reqres.in/api/users/2',
         body:{
-            name: "meher",
+            name: user,
             job: "zion resident"
         }
     })
     .as('currentResponse')
     .its('status')
     .should('equal', 200)
+});
+
+Given(/^I access api request end point to register user$/, function() {
+	cy.request({
+        method: 'POST',
+        url: 'https://reqres.in/api/register',
+        body:{
+            "email": "eve.holt@reqres.in",
+            "password": "pistol"
+        }
+    })
+    .then(function(response){
+        expect(response.status).to.equal(200);
+        cy.log(JSON.stringify(response.body));
+        console.log(response.body);
+    });
 });
