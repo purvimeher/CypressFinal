@@ -36,7 +36,7 @@
 # How to run the tests in parallel Feature level
 
 - Step 1: Open the project root folder in Terminal
-- Step 2: npm run cy:parallel
+- Step 2: npm run cy:parallel [old] new --> npm run cy:run:test
 
 # How to run the tests in chrome browser headed mode
 
