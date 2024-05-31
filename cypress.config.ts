@@ -20,6 +20,7 @@ async function setupNodeEvents(
 }
 
 export default defineConfig({
+    video: false,
     e2e: {
         baseUrl:"https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login",
         defaultCommandTimeout: 10000,

@@ -12,7 +12,21 @@
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc --noEmit",
     "lint": "npm run lint:eslint; npm run lint:tsc",
-    "lint:fix": "npm run lint:eslint -- --fix"
+    "lint:fix": "npm run lint:eslint -- --fix",
+
+    "start": "cypress open --global",
+    "cy:open": "cypress open --e2e --browser chrome",
+    "cy:run": "cypress run --browser=chrome",
+    "cy:parallelx": "cypress-parallel -s cy:run -t 4 -r 'mochawesome' -d cypress/e2e/features/ -m false -o 'reportDir=report/json,overwrite=false,html=false,json=true'",
+    "cy:noparallel": "cypress-parallel -s cy:run -t 1 -r 'mochawesome' -d 'cypress/e2e/**/*.cy.js' -o 'reportDir=report/json,overwrite=false,html=false,json=true'",
+    "report:clean": "rm -r report",
+    "report:merge": "mochawesome-merge 'report/json/*.json' > report/mochawesome.json",
+    "report:aggregate": "node aggregate-mochawesome-reporter-chart.js",
+    "report:build": "marge report/mochawesome.json -f index -o report --assetsDir report/assets --charts true --inline true --showPassed false",
+    "report:serve": "npx http-server ./report",
+    "cy:run:test": "npm run report:clean; npm run cy:parallelx; npm run report:merge && npm run report:aggregate && npm run report:build",
+    "cy:run:test1": "npm run report:clean; npm run cy:noparallel; npm run report:merge && npm run report:aggregate && npm run report:build"
+
   },
   "keywords": [
     "BDD",
@@ -30,7 +44,13 @@
     "@badeball/cypress-cucumber-preprocessor": "^20.0.5",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "cypress": "^13.9.0",
-    "cypress-parallel": "^0.14.0"
+    "cypress-parallel": "^0.14.0",
+    "api": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.4.0",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "node-fetch": "^3.3.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/cypress": "^1.1.3",

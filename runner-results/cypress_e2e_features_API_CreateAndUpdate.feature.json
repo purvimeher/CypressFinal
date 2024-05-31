@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 4,
+  "passes": 4,
+  "pending": 0,
+  "failures": 0,
+  "start": "2024-05-31T18:25:31.204Z",
+  "duration": 731,
+  "file": "cypress/e2e/features/API_CreateAndUpdate.feature"
+}
