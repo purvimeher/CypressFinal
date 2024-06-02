@@ -22,7 +22,7 @@
     "report:clean": "rm -r report",
     "report:merge": "mochawesome-merge 'report/json/*.json' > report/mochawesome.json",
     "report:aggregate": "node aggregate-mochawesome-reporter-chart.js",
-    "report:build": "marge report/mochawesome.json -f index -o report --assetsDir report/assets --charts true --inline true --showPassed false",
+    "report:build": "marge report/mochawesome.json -f index -o report --assetsDir report/assets --charts true --inline true --showPassed true",
     "report:serve": "npx http-server ./report",
     "cy:run:test": "npm run report:clean; npm run cy:parallelx; npm run report:merge && npm run report:aggregate && npm run report:build",
     "cy:run:test1": "npm run report:clean; npm run cy:noparallel; npm run report:merge && npm run report:aggregate && npm run report:build"

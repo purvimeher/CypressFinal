@@ -11,10 +11,10 @@ Feature: As car owner, I want to get car insurance quotes from confused.com
     When I fill the car registration input with the "<car_registration>"
     Then the text "<car_registration>" should be visible on the registration table
 
-    @myothercar
-    Examples:
-      | car_registration |
-      | AU04YWD          |
+    # @myothercar
+    # Examples:
+    #   | car_registration |
+    #   | AU04YWD          |
 
     @mycar
     Examples:

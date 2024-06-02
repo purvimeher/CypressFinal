@@ -4,7 +4,7 @@
   "passes": 1,
   "pending": 0,
   "failures": 0,
-  "start": "2024-05-31T18:25:29.057Z",
-  "duration": 4055,
+  "start": "2024-06-02T09:09:27.860Z",
+  "duration": 3572,
   "file": "cypress/e2e/features/UI_Customer.feature"
 }

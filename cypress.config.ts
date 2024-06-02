@@ -22,7 +22,7 @@ async function setupNodeEvents(
 export default defineConfig({
     video: false,
     e2e: {
-        baseUrl:"https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login",
+        baseUrl:"https://qavbox.github.io/demo",
         defaultCommandTimeout: 10000,
         specPattern: '**/*.feature',
         setupNodeEvents,
