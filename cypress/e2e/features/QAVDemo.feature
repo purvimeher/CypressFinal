@@ -8,4 +8,6 @@ Feature: As qa, I want to check qavdemo site
   @qvaDemoHomePage @test
   Scenario: Check all buttons presence
     Then I should see "10" buttons
-    When I click on the SignUp form button
+    When I click on the "SignUp Form" section button
+    Then I should see the following text in h3 header "Work on these below dummy controls to learn automation testing"
+    When I fill the signup form
